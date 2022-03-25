@@ -1,24 +1,28 @@
 package ma.cigma.pfe.dao;
 
 import ma.cigma.pfe.models.Client;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.PersistenceContext;
+
+@Repository
 
 public class ClientDaoImpl implements IClientDao{
-    private EntityManagerFactory emf= Persistence.createEntityManagerFactory("unit_clients");
 
-     private EntityManager em=emf.createEntityManager();
-    public ClientDaoImpl (){
+@PersistenceContext
+     private EntityManager em;
 
-    }
+   // public ClientDaoImpl (){}
+
     @Override
     public boolean save(Client c) {
        // System.out.println("Dao layer level...");
-        em.getTransaction().begin();
+      //  em.getTransaction().begin();
          this.em.persist(c);
-        em.getTransaction().commit();
+     //   em.getTransaction().commit();
          return true;
     }
 

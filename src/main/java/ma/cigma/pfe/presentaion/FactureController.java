@@ -4,24 +4,27 @@ import ma.cigma.pfe.models.Client;
 import ma.cigma.pfe.models.Facture;
 import ma.cigma.pfe.service.IClientService;
 import ma.cigma.pfe.service.IFactureService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
 import java.util.List;
 
+
+
+@Controller("controllerFacture")
 public class FactureController {
+
+    @Autowired
     IFactureService serviceFDI ;
 
     public FactureController() {
         System.out.println("creation d'un objet facture controller");;
     }
 
-    public FactureController(IFactureService factureService) {
-        System.out.println("Call FactureController ...");
-        this.serviceFDI = factureService;
-    }
-    public void setFactureService(IFactureService factureService)
-    {
-        this.serviceFDI = factureService;
-    }
+  //  public FactureController(IFactureService factureService) {
+        //System.out.println("Call FactureController ...");
+      //  this.serviceFDI = factureService;}
+
 
     public IFactureService getFactureService()
     {

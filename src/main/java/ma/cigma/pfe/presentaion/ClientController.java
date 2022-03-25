@@ -4,13 +4,16 @@ import ma.cigma.pfe.dao.IClientDao;
 import ma.cigma.pfe.models.Client;
 import ma.cigma.pfe.service.ClientServiceImpl;
 import ma.cigma.pfe.service.IClientService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+@Controller("idctrl")
 
 public class ClientController {
 
-    public void setService(IClientService service) {
-        this.service = service;
-    }
 
+
+    @Autowired
     IClientService service ;
 
     public IClientService getService() {
@@ -23,9 +26,7 @@ public class ClientController {
 
     }
 
-    public ClientController() {
-        System.out.println("creation d'un objet client controller");;
-    }
+
 
     public void modify(Client c){
         service.modify(c);
